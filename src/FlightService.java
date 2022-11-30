@@ -20,6 +20,7 @@ public class FlightService {
             // sleep the current thread for random amount of time in order to simulate the remote process fetching price of the Quote remotely
             sleepThreadRandomly(random.nextInt(2000));
 
+            // get 100 +- 10 price randomly to simulate remote process
             double price = 100 + random.nextInt(10);
 
             return new Quote(site, price);

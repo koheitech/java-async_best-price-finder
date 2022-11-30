@@ -1,13 +1,16 @@
 import java.time.Duration;
 import java.time.LocalTime;
+import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args) {
         var start = LocalTime.now();
+
+        var sites = List.of("site1", "site2", "site3");
         var futures = FlightService
-                .getQuotes()
+                .getQuotes(sites)
                 .map(future -> future.thenAccept(System.out::println))
                 .collect(Collectors.toList());
 

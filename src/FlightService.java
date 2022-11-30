@@ -4,8 +4,7 @@ import java.util.concurrent.CompletableFuture;
 import java.util.stream.Stream;
 
 public class FlightService {
-    public static Stream<CompletableFuture<Quote>> getQuotes() {
-        var sites = List.of("site1", "site2", "site3");
+    public static Stream<CompletableFuture<Quote>> getQuotes(List<String> sites) {
         return sites
                 .stream()
                 .map(FlightService::getQuote);

@@ -6,8 +6,7 @@ import java.util.stream.Collectors;
 public class Main {
     public static void main(String[] args) {
         var start = LocalTime.now();
-        var service = new FlightService();
-        var futures = service
+        var futures = FlightService
                 .getQuotes()
                 .map(future -> future.thenAccept(System.out::println))
                 .collect(Collectors.toList());

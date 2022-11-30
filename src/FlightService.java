@@ -17,9 +17,8 @@ public class FlightService {
 
             System.out.println("Getting a quote from " + site);
 
-            // sleep the current thread for 3 sec in order to simulate the remote process
-            // that fetching price of the Quote remotely
-            sleepFor(1000 + random.nextInt(2000));
+            // sleep the current thread for random amount of time in order to simulate the remote process fetching price of the Quote remotely
+            sleepThreadRandomly(random.nextInt(2000));
 
             double price = 100 + random.nextInt(10);
 
@@ -27,9 +26,9 @@ public class FlightService {
         });
     }
 
-    private static void sleepFor(int delay) {
+    private static void sleepThreadRandomly(int delay) {
         try {
-            Thread.sleep(delay);
+            Thread.sleep(1000 + delay);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }

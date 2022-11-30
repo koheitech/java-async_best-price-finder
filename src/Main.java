@@ -1,9 +1,12 @@
+import java.util.stream.Collectors;
+
 public class Main {
     public static void main(String[] args) {
         var service = new FlightService();
         service
-            .getQuote("site1")
-            .thenAccept(System.out::println);
+                .getQuotes()
+                .map(future -> future.thenAccept(System.out::println))
+                .collect(Collectors.toList());
 
         // sleep thread to output the result in the console
         try {
